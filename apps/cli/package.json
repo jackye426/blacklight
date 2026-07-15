@@ -1,0 +1,19 @@
+{
+  "name": "@blacklight/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The `atlas` command — ingest, map, trace, compare.",
+  "bin": {
+    "atlas": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*",
+    "@blacklight/experiment-runner": "workspace:*",
+    "@blacklight/knowledge-graph": "workspace:*",
+    "@blacklight/runtime-tracing": "workspace:*",
+    "@blacklight/static-analysis": "workspace:*",
+    "@blacklight/adapter-github": "workspace:*",
+    "@blacklight/adapter-local-repo": "workspace:*"
+  }
+}

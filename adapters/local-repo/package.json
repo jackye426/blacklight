@@ -1,0 +1,13 @@
+{
+  "name": "@blacklight/adapter-local-repo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Resolve a target from any local directory.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*"
+  }
+}

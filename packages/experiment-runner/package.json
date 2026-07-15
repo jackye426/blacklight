@@ -1,0 +1,14 @@
+{
+  "name": "@blacklight/experiment-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Controlled comparative experiments: investigation.yaml protocol, run scaffolding, reports.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*",
+    "yaml": "^2.6.0"
+  }
+}

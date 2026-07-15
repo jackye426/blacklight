@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Vendored third-party source — NEVER commit (see RESEARCH-POLICY.md)
+vendor/
+
+# Investigation captures: keep authored configs, recorded metrics.yaml, and the small rendered
+# .md views (architecture / execution-flow / unknowns). Ignore the large, regenerable machine
+# artifacts and raw trace streams — anyone can rebuild them with `atlas ingest` / `atlas trace`.
+investigations/**/graph.json
+investigations/**/concepts.json
+investigations/**/*.trace.jsonl
+**/runtime-trace.jsonl
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Env / secrets
+.env
+.env.local
+*.log

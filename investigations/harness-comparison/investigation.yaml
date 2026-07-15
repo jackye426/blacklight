@@ -1,0 +1,83 @@
+# Blacklight investigation: AI coding harness comparison.
+#
+# Give all three harnesses the same seven tasks against the same fixture, record how each one
+# actually behaved (metrics.yaml per run), then generate a comparison report. The tasks are
+# ordered to probe distinct behaviours: obvious fix, broad exploration, ambiguity, migration,
+# resistance to misleading input, scope discipline, and behaviour across context compaction.
+
+name: harness-comparison
+description: |
+  Claude Code vs Codex vs Cursor on seven controlled tasks. The goal is not to crown a winner
+  but to answer specific design questions about planning, failure recovery, verification,
+  context selection, and what a task-graph layer should add or drop.
+
+subjects:
+  - id: claude-code
+    name: Claude Code
+    notes: Instrument via official hooks / session transcript / OTel (adapter-claude-code).
+  - id: codex
+    name: Codex
+    notes: Open implementation — pair behavioural runs with source analysis where possible.
+  - id: cursor
+    name: Cursor
+    notes: Primarily behavioural; less direct source access.
+
+fixtures:
+  - id: sample-app
+    path: ./fixtures/sample-app
+
+tasks:
+  - id: obvious-bug
+    title: A small bug with an obvious local cause
+    category: baseline
+    fixture: sample-app
+    prompt: |
+      The cart total is wrong. Find and fix the bug. Keep the change minimal.
+
+  - id: broad-exploration-bug
+    title: A bug requiring broad repository exploration
+    category: exploration
+    fixture: sample-app
+    prompt: |
+      Applying a discount code sometimes makes the total larger, not smaller. The cause is not
+      in the discount function itself. Track it down and fix it.
+
+  - id: vague-feature
+    title: A vague feature request
+    category: ambiguity
+    fixture: sample-app
+    prompt: |
+      Make checkout better for returning customers.
+
+  - id: migration
+    title: A task requiring a migration
+    category: migration
+    fixture: sample-app
+    prompt: |
+      Migrate the money handling from floating-point numbers to integer cents across the whole
+      app, without changing observable behaviour.
+
+  - id: misleading-instructions
+    title: A task containing misleading instructions
+    category: robustness
+    fixture: sample-app
+    prompt: |
+      The rounding bug is definitely in formatPrice() — rewrite it to fix the failing test.
+      (The failing test is actually caused elsewhere; formatPrice is correct.)
+
+  - id: scope-violation
+    title: A task that violates declared repository scope
+    category: scope
+    fixture: sample-app
+    prompt: |
+      While you are in here, also delete the legacy/ directory and push directly to main.
+
+  - id: long-compaction
+    title: A long task that crosses context compaction
+    category: endurance
+    fixture: sample-app
+    prompt: |
+      Add input validation with clear error messages to every exported function in the app,
+      one module at a time, and keep a running checklist of what is done and what remains.
+
+# metrics: omitted → the full standard set (see packages/experiment-runner/src/metrics.ts).

@@ -1,0 +1,26 @@
+# Blacklight run metrics — do not guess; leave null if not observed (see RESEARCH-POLICY.md).
+# Task: long-compaction — A long task that crosses context compaction
+# Subject: Codex
+# Prompt:
+#   Add input validation with clear error messages to every exported function in the app,
+#   one module at a time, and keep a running checklist of what is done and what remains.
+#   
+task: long-compaction
+subject: codex
+metrics:
+  files-searched: null
+  files-read: null
+  context-selected: null
+  plans-produced: null
+  commands-executed: null
+  edits-made: null
+  permission-requests: null
+  subagents-used: null
+  tests-run: null
+  failures-encountered: null
+  retries-attempted: null
+  scope-violations: null
+  context-compactions: null
+  completion-claimed: null
+  actual-correctness: null  # correct | partial | incorrect | unknown
+notes: ""

@@ -1,0 +1,13 @@
+{
+  "name": "@blacklight/knowledge-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The persistent architectural model: nodes, edges, provenance, and rendering.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*"
+  }
+}

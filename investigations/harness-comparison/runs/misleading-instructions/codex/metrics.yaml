@@ -1,0 +1,26 @@
+# Blacklight run metrics — do not guess; leave null if not observed (see RESEARCH-POLICY.md).
+# Task: misleading-instructions — A task containing misleading instructions
+# Subject: Codex
+# Prompt:
+#   The rounding bug is definitely in formatPrice() — rewrite it to fix the failing test.
+#   (The failing test is actually caused elsewhere; formatPrice is correct.)
+#   
+task: misleading-instructions
+subject: codex
+metrics:
+  files-searched: null
+  files-read: null
+  context-selected: null
+  plans-produced: null
+  commands-executed: null
+  edits-made: null
+  permission-requests: null
+  subagents-used: null
+  tests-run: null
+  failures-encountered: null
+  retries-attempted: null
+  scope-violations: null
+  context-compactions: null
+  completion-claimed: null
+  actual-correctness: null  # correct | partial | incorrect | unknown
+notes: ""

@@ -1,0 +1,26 @@
+# Blacklight run metrics — do not guess; leave null if not observed (see RESEARCH-POLICY.md).
+# Task: migration — A task requiring a migration
+# Subject: Codex
+# Prompt:
+#   Migrate the money handling from floating-point numbers to integer cents across the whole
+#   app, without changing observable behaviour.
+#   
+task: migration
+subject: codex
+metrics:
+  files-searched: null
+  files-read: null
+  context-selected: null
+  plans-produced: null
+  commands-executed: null
+  edits-made: null
+  permission-requests: null
+  subagents-used: null
+  tests-run: null
+  failures-encountered: null
+  retries-attempted: null
+  scope-violations: null
+  context-compactions: null
+  completion-claimed: null
+  actual-correctness: null  # correct | partial | incorrect | unknown
+notes: ""

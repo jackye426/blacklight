@@ -1,0 +1,14 @@
+{
+  "name": "@blacklight/adapter-claude-code",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Capture Claude Code runtime behaviour via official hooks, session JSONL, and OTel.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*",
+    "@blacklight/runtime-tracing": "workspace:*"
+  }
+}

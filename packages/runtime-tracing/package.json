@@ -1,0 +1,13 @@
+{
+  "name": "@blacklight/runtime-tracing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Runtime tracing: process wrapping and execution-flow rendering.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*"
+  }
+}

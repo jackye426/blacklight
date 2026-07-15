@@ -1,0 +1,10 @@
+{
+  "name": "@blacklight/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared investigation model, artifact contracts, and workspace helpers.",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

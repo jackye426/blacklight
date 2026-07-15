@@ -1,0 +1,26 @@
+# Blacklight run metrics — do not guess; leave null if not observed (see RESEARCH-POLICY.md).
+# Task: broad-exploration-bug — A bug requiring broad repository exploration
+# Subject: Codex
+# Prompt:
+#   Applying a discount code sometimes makes the total larger, not smaller. The cause is not
+#   in the discount function itself. Track it down and fix it.
+#   
+task: broad-exploration-bug
+subject: codex
+metrics:
+  files-searched: null
+  files-read: null
+  context-selected: null
+  plans-produced: null
+  commands-executed: null
+  edits-made: null
+  permission-requests: null
+  subagents-used: null
+  tests-run: null
+  failures-encountered: null
+  retries-attempted: null
+  scope-violations: null
+  context-compactions: null
+  completion-claimed: null
+  actual-correctness: null  # correct | partial | incorrect | unknown
+notes: ""

@@ -1,0 +1,7 @@
+{
+  "name": "@blacklight/adapter-codex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "(Stub) Codex adapter — scope and planned approach only; no code in V1. See README.md."
+}

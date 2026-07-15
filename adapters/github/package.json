@@ -1,0 +1,14 @@
+{
+  "name": "@blacklight/adapter-github",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Resolve a target by shallow-cloning a GitHub repo into the gitignored vendor/ cache.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@blacklight/core": "workspace:*",
+    "@blacklight/adapter-local-repo": "workspace:*"
+  }
+}
