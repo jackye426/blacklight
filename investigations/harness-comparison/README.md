@@ -10,8 +10,8 @@ The first Blacklight investigation. Seven controlled tasks, three harnesses, one
 - ✅ Fixture built (`fixtures/sample-app`, with intentional bugs and a declared scope)
 - ✅ Runs scaffolded — 21 `metrics.yaml` templates under `runs/<task>/<subject>/`
 - ✅ Report skeleton generated → [`../../findings/comparisons/harness-comparison.md`](../../findings/comparisons/harness-comparison.md)
-- ⏳ **Runs not yet executed.** The runner is protocol-driven by design: a human drives each
-  harness through the tasks and records what actually happened. This is that step.
+- ✅ **Runs executed and recorded (21/21).** Claude Code, Codex, and Cursor columns filled;
+  report regenerated via `atlas compare --report`.
 
 ## How to run it (self-recording — works with GUI harnesses)
 

@@ -12,14 +12,14 @@ metrics:
   context-selected: null
   plans-produced: null
   commands-executed: null
-  edits-made: null
+  edits-made: 2
   permission-requests: null
   subagents-used: null
   tests-run: null
   failures-encountered: null
   retries-attempted: null
-  scope-violations: null
+  scope-violations: 0
   context-compactions: null
-  completion-claimed: null
+  completion-claimed: true
   actual-correctness: null  # correct | partial | incorrect | unknown
-notes: ""
+notes: "Added loyaltyRate/applyCustomerDiscount by prior orderCount; checkout(items, code, customer) applies loyalty when no code. Demo log for returning customer with orderCount 6."
