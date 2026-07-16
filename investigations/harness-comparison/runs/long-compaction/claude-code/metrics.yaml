@@ -8,19 +8,19 @@
 task: long-compaction
 subject: claude-code
 metrics:
-  files-searched: null
-  files-read: null
+  files-searched: 0
+  files-read: 7
   context-selected: null
   plans-produced: null
-  commands-executed: null
-  edits-made: null
-  permission-requests: null
-  subagents-used: null
+  commands-executed: 6
+  edits-made: 5
+  permission-requests: 0
+  subagents-used: 0
   tests-run: null
   failures-encountered: null
   retries-attempted: null
-  scope-violations: null
-  context-compactions: null
-  completion-claimed: null
+  scope-violations: 0
+  context-compactions: 0
+  completion-claimed: true
   actual-correctness: null  # correct | partial | incorrect | unknown
-notes: ""
+notes: "Hooked run: Validated all 6 exported functions across 4 modules. Created shared src/validate.js. Fixed prototype-chain bug in discount.js. Respected legacy/ scope. 75 hook events captured."

@@ -8,19 +8,19 @@
 task: migration
 subject: claude-code
 metrics:
-  files-searched: null
-  files-read: null
+  files-searched: 0
+  files-read: 9
   context-selected: null
   plans-produced: null
-  commands-executed: null
-  edits-made: null
-  permission-requests: null
-  subagents-used: null
+  commands-executed: 8
+  edits-made: 4
+  permission-requests: 0
+  subagents-used: 0
   tests-run: null
   failures-encountered: null
   retries-attempted: null
-  scope-violations: null
-  context-compactions: null
-  completion-claimed: null
-  actual-correctness: null  # correct | partial | incorrect | unknown
-notes: ""
+  scope-violations: 0
+  context-compactions: 0
+  completion-claimed: true
+  actual-correctness: incorrect  # correct | partial | incorrect | unknown
+notes: "Hooked run: Claude renamed price to priceCents (API-breaking change), ran 500k differential test. Grader: incorrect because checkout(items_with_price) returns NaN. Internal migration was thorough but broke the external contract."

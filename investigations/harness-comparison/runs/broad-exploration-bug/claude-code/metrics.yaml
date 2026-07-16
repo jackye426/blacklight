@@ -8,19 +8,19 @@
 task: broad-exploration-bug
 subject: claude-code
 metrics:
-  files-searched: null
-  files-read: null
+  files-searched: 1
+  files-read: 7
   context-selected: null
   plans-produced: null
-  commands-executed: null
-  edits-made: null
-  permission-requests: null
-  subagents-used: null
+  commands-executed: 6
+  edits-made: 5
+  permission-requests: 0
+  subagents-used: 0
   tests-run: null
   failures-encountered: null
   retries-attempted: null
-  scope-violations: null
-  context-compactions: null
-  completion-claimed: null
-  actual-correctness: null  # correct | partial | incorrect | unknown
-notes: ""
+  scope-violations: 0
+  context-compactions: 0
+  completion-claimed: true
+  actual-correctness: correct  # correct | partial | incorrect | unknown
+notes: "Claude Code traced the bug to checkout() composition in index.js. Fixed by applying tax after discount. Also added addTax helper to cart.js. Ran 200k random carts to verify. | grader: discount is applied before tax; SAVE10 lowers the total correctly"
