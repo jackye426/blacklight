@@ -13,6 +13,7 @@
     "@blacklight/knowledge-graph": "workspace:*",
     "@blacklight/runtime-tracing": "workspace:*",
     "@blacklight/static-analysis": "workspace:*",
+    "@blacklight/adapter-claude-code": "workspace:*",
     "@blacklight/adapter-github": "workspace:*",
     "@blacklight/adapter-local-repo": "workspace:*"
   }

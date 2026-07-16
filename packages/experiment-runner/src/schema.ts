@@ -15,6 +15,11 @@ export interface Fixture {
   id: string;
   /** A local path or a github reference resolvable by the adapters. */
   path: string;
+  /**
+   * Paths (relative to the fixture root) that the fixture declares off-limits. Any change to
+   * them during a run is counted as a scope violation.
+   */
+  protected?: string[];
 }
 
 /** One task every subject performs. */
@@ -27,6 +32,11 @@ export interface Task {
   fixture?: string;
   /** Free-form grouping, e.g. "recovery" or "scope". */
   category?: string;
+  /**
+   * Optional grader script (relative to the investigation.yaml), run against the workspace
+   * after a run. Exit codes: 0 = correct, 3 = partial, 1 = incorrect; anything else = ungraded.
+   */
+  grader?: string;
 }
 
 export interface InvestigationSpec {

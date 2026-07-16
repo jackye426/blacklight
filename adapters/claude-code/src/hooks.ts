@@ -20,6 +20,7 @@ export const HOOK_EVENTS = [
   "PreToolUse",
   "PostToolUse",
   "Notification",
+  "PreCompact",
   "Stop",
 ] as const;
 
@@ -85,6 +86,7 @@ const HOOK_TO_EVENT: Record<HookEvent, TraceEventType> = {
   PreToolUse: "tool.call",
   PostToolUse: "tool.call",
   Notification: "permission.wait",
+  PreCompact: "hook.execution",
   Stop: "interaction",
 };
 

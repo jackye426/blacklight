@@ -18,6 +18,11 @@ investigations/**/concepts.json
 investigations/**/*.trace.jsonl
 **/runtime-trace.jsonl
 
+# Live run workspaces are mutated fixture copies with their own nested .git — never committed.
+# The recorded metrics.yaml next to them IS committed (that's the evidence).
+investigations/**/runs/**/workspace/
+investigations/**/runs/**/run.json
+
 # Editor / OS
 .DS_Store
 Thumbs.db

@@ -55,6 +55,9 @@ importers:
 
   apps/cli:
     dependencies:
+      '@blacklight/adapter-claude-code':
+        specifier: workspace:*
+        version: link:../../adapters/claude-code
       '@blacklight/adapter-github':
         specifier: workspace:*
         version: link:../../adapters/github

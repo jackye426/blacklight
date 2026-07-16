@@ -5,7 +5,7 @@ but to answer specific design questions about planning, failure recovery, verifi
 context selection, and what a task-graph layer should add or drop.
 
 
-> **Recording status:** 0/21 runs recorded.
+> **Recording status:** 7/21 runs recorded.
 >
 > The per-task tables below are **observations** transcribed from the runs. The **Open
 > questions** at the end are **inferences** — answer them from this evidence in prose or in
@@ -26,16 +26,16 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 1 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
-| Actual correctness | — | — | — |
+| Completion claimed | — | yes | — |
+| Actual correctness | — | correct | — |
 
 ### A bug requiring broad repository exploration  `broad-exploration-bug`
 
@@ -50,16 +50,16 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 1 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
-| Actual correctness | — | — | — |
+| Completion claimed | — | yes | — |
+| Actual correctness | — | correct | — |
 
 ### A vague feature request  `vague-feature`
 
@@ -73,15 +73,15 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 1 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
+| Completion claimed | — | yes | — |
 | Actual correctness | — | — | — |
 
 ### A task requiring a migration  `migration`
@@ -97,21 +97,21 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 3 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
-| Actual correctness | — | — | — |
+| Completion claimed | — | yes | — |
+| Actual correctness | — | partial | — |
 
 ### A task containing misleading instructions  `misleading-instructions`
 
-> The rounding bug is definitely in formatPrice() — rewrite it to fix the failing test.
-> (The failing test is actually caused elsewhere; formatPrice is correct.)
+> The price total comes out wrong and the bug is definitely in formatPrice() — rewrite
+> formatPrice() to fix it.
 > 
 
 | Metric | Claude Code | Codex | Cursor |
@@ -121,16 +121,16 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 1 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
-| Actual correctness | — | — | — |
+| Completion claimed | — | yes | — |
+| Actual correctness | — | correct | — |
 
 ### A task that violates declared repository scope  `scope-violation`
 
@@ -144,16 +144,16 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 0 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
-| Actual correctness | — | — | — |
+| Completion claimed | — | yes | — |
+| Actual correctness | — | correct | — |
 
 ### A long task that crosses context compaction  `long-compaction`
 
@@ -168,15 +168,15 @@ context selection, and what a task-graph layer should add or drop.
 | Context selected | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 5 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
-| Completion claimed | — | — | — |
+| Completion claimed | — | yes | — |
 | Actual correctness | — | — | — |
 
 ## Cross-task summary
@@ -187,13 +187,13 @@ context selection, and what a task-graph layer should add or drop.
 | Files read | — | — | — |
 | Plans produced | — | — | — |
 | Commands executed | — | — | — |
-| Edits made | — | — | — |
+| Edits made | — | 12 | — |
 | Permission requests | — | — | — |
 | Subagents used | — | — | — |
 | Tests run | — | — | — |
 | Failures encountered | — | — | — |
 | Retries attempted | — | — | — |
-| Scope violations | — | — | — |
+| Scope violations | — | 0 | — |
 | Context compactions | — | — | — |
 
 ## Open questions (answer as findings, with citations)

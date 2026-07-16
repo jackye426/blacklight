@@ -28,6 +28,7 @@ function validateTask(raw: unknown, i: number): Task {
     prompt: t.prompt,
     ...(t.fixture ? { fixture: t.fixture } : {}),
     ...(t.category ? { category: t.category } : {}),
+    ...(t.grader ? { grader: t.grader } : {}),
   };
 }
 

@@ -13,3 +13,4 @@
 export * from "./hooks.ts";
 export * from "./session.ts";
 export * from "./otel.ts";
+export * from "./metrics.ts";

@@ -11,4 +11,5 @@ export * from "./schema.ts";
 export * from "./metrics.ts";
 export * from "./load.ts";
 export * from "./scaffold.ts";
+export * from "./run.ts";
 export * from "./report.ts";

@@ -67,6 +67,7 @@ Blacklight is a standalone, local-first **software intelligence laboratory**: gi
 - [ ] 🟨 **Step 9: Investigation 1 — Claude Code vs Codex vs Cursor**
   - [x] 🟩 Author `investigations/harness-comparison/investigation.yaml` with the seven task types (obvious local bug, broad-exploration bug, vague feature, migration, misleading instructions, scope violation, long task crossing compaction) + `fixtures/sample-app` (intentional bugs, declared scope) + runbook README; 21 runs scaffolded
   - [ ] 🟨 Execute runs for all three harnesses, capturing traces — **human-driven by design** (runner is protocol-driven). Runbook in the investigation README; instrumentation ready (`atlas trace`, `adapter-claude-code`)
+  - [x] 🟩 Self-recording runs (`atlas run start/finish`): isolated workspace + git baseline per run, auto-metrics from git diff, per-task graders vs known fixture answers, protected-path scope detection, CC hook-trace counts — so GUI harnesses (Cursor, Codex VS Code extension) only need the prompt pasted
   - [ ] 🟨 Generate comparison report; write conclusions — report skeleton generated at `findings/comparisons/harness-comparison.md` (0/21 recorded); conclusions + `findings/reusable-patterns/` await recorded runs. The TaskGraph OS questions are embedded in the report's open-questions section
 
 - [ ] 🟨 **Step 10: Static case studies — Codex, Firecrawl, Obsidian**
