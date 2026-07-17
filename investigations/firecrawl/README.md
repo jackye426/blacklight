@@ -1,16 +1,20 @@
 # Investigation: Firecrawl (static case study)
 
-A highly practical **non-agent** system — queues, workers, crawling, performance — and a strong
-TypeScript static-analysis target. See [`adapters/firecrawl`](../../adapters/firecrawl) for
+A highly practical non-agent system: queues, workers, crawling, scraping engines, browser
+isolation, and performance controls. See [`adapters/firecrawl`](../../adapters/firecrawl) for
 scope.
 
 ## Status
 
-- ✅ **Ingested + mapped.** Artifacts are in
-  [`../firecrawl-firecrawl/`](../firecrawl-firecrawl) (the GitHub target's slug): 1631 files,
-  1339 graph nodes, 4087 edges, 592 concepts, 1 recorded unknown. Source lives only in the
-  git-ignored `vendor/` cache, never committed (RESEARCH-POLICY.md).
-- ⏳ Runtime study (worker trace) and written architecture finding still to do.
+- Complete: Ingested and mapped. Artifacts are in
+  [`../firecrawl-firecrawl/`](../firecrawl-firecrawl) (the GitHub target slug): 1631 files,
+  1339 graph nodes, 4087 edges, 592 concepts, 1 generated unknown. Source lives only in the
+  git-ignored `vendor/` cache, never committed.
+- Complete: Manual deep source study. See
+  [`../firecrawl-firecrawl/source-study.md`](../firecrawl-firecrawl/source-study.md) and
+  [`../../findings/architecture/firecrawl-structure.md`](../../findings/architecture/firecrawl-structure.md).
+- Remaining: Runtime study under load. The source structure is understood, but worker timing,
+  contention, and real queue behavior still need a trace.
 
 ## How it was run
 
@@ -21,17 +25,21 @@ pnpm atlas map    github:firecrawl/firecrawl
 ```
 
 This wrote `graph.json`, `concepts.json`, `unknowns.md`, and `architecture.md` into
-`investigations/firecrawl-firecrawl/`. First pass cleanly separated the monorepo apps
-(`apps/api` is the ~700-file core, plus `js-sdk`, `playwright-service`, `test-suite`).
+`investigations/firecrawl-firecrawl/`. The manual study then traced the API, stored crawl,
+NuQ group, kickoff, scrape job, engine fallback, and crawl-finished flow.
 
-## What to look for
+## What we learned
 
-- Do the queue / worker / crawler responsibilities show up as distinct components?
-- Which modules are the hubs (high in-degree in the import graph)?
-- Runtime: wrap a worker with `atlas trace -- <cmd>` to see how work moves under load.
+- The queue / worker / crawler responsibilities are distinct: API controllers create crawls and
+  kickoff jobs; NuQ workers process kickoff, sitemap, and single-URL jobs; scrape engines and
+  transformers live under `scraper/scrapeURL`.
+- Firecrawl uses multiple queue mechanisms: BullMQ/Redis side queues, RabbitMQ extraction,
+  custom NuQ on Postgres, and a FoundationDB migration path.
+- Browser work is isolated in `apps/playwright-service-ts`, reached through
+  `PLAYWRIGHT_MICROSERVICE_URL`.
 
-## From evidence to findings
+## Next Runtime Question
 
-The graph and concepts are observations. Write the architectural story in
-`findings/architecture/` and cite specific nodes/edges. Record anything the TS-only pipeline
-can't resolve in this investigation's `unknowns.md`.
+Wrap a worker with `atlas trace -- <cmd>` to observe timings, contention, lock renewal, and
+queue behavior under load. The static source study explains the architecture; runtime tracing
+would show its actual operational profile.

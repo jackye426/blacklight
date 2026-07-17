@@ -52,3 +52,10 @@ into this repo. Our Claude Code architecture dossier is built from:
 We can get close to a comprehensive understanding of the Claude Code *local harness*. We do
 not, and cannot, obtain Claude's weights, training data, or Anthropic's production stack — and
 we will not represent otherwise.
+
+### Specifically re: Claw Code
+
+Public Claw Code repositories and recreations may be studied as public artifacts, but they
+must not be represented as canonical Anthropic Claude Code source unless that is independently
+proven. Source still belongs in the git-ignored `vendor/` cache. Commit only our observation
+artifacts, coverage gaps, and independently written findings.

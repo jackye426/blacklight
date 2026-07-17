@@ -1,6 +1,6 @@
 # Blacklight — Implementation Plan
 
-**Overall Progress:** `92%` _(V1 complete; live harness runs & extra external ingests are documented human-driven steps. Step 11 web UI is Phase 2.)_
+**Overall Progress:** `98%` _(V1 complete; harness comparison and static case studies are complete. Step 11 web UI is Phase 2.)_
 
 ## TLDR
 
@@ -64,16 +64,18 @@ Blacklight is a standalone, local-first **software intelligence laboratory**: gi
   - [x] 🟩 `adapters/github`: `GithubResolver` shallow-clones into the gitignored `vendor/` cache, then delegates to the local-repo model (built in Step 5)
   - [x] 🟩 Stub READMEs for `codex`, `cursor`, `obsidian`, `firecrawl` (scope + planned approach, no code); `exports` removed from stub manifests
 
-- [ ] 🟨 **Step 9: Investigation 1 — Claude Code vs Codex vs Cursor**
+- [x] 🟩 **Step 9: Investigation 1 — Claude Code vs Codex vs Cursor**
   - [x] 🟩 Author `investigations/harness-comparison/investigation.yaml` with the seven task types (obvious local bug, broad-exploration bug, vague feature, migration, misleading instructions, scope violation, long task crossing compaction) + `fixtures/sample-app` (intentional bugs, declared scope) + runbook README; 21 runs scaffolded
-  - [ ] 🟨 Execute runs for all three harnesses, capturing traces — **human-driven by design** (runner is protocol-driven). Runbook in the investigation README; instrumentation ready (`atlas trace`, `adapter-claude-code`)
+  - [x] 🟩 Execute runs for all three harnesses, capturing traces/recorded metrics — **human-driven by design** (runner is protocol-driven). All 21 runs are recorded for Claude Code, Codex, and Cursor; Claude Code has hook-derived tool counts, while GUI-only metrics remain null where unobservable.
   - [x] 🟩 Self-recording runs (`atlas run start/finish`): isolated workspace + git baseline per run, auto-metrics from git diff, per-task graders vs known fixture answers, protected-path scope detection, CC hook-trace counts — so GUI harnesses (Cursor, Codex VS Code extension) only need the prompt pasted
-  - [ ] 🟨 Generate comparison report; write conclusions — report skeleton generated at `findings/comparisons/harness-comparison.md` (0/21 recorded); conclusions + `findings/reusable-patterns/` await recorded runs. The TaskGraph OS questions are embedded in the report's open-questions section
+  - [x] 🟩 Generate comparison report — `findings/comparisons/harness-comparison.md` regenerated with 21/21 recorded runs. The per-task tables are observations; the TaskGraph OS questions remain in the report's open-questions section.
+  - [x] 🟩 Write conclusions from the recorded harness evidence — answered the open questions in `findings/comparisons/harness-comparison.md` and extracted reusable patterns in `findings/reusable-patterns/harness-evaluation-patterns.md`, citing the run tables and keeping observation vs inference explicit.
 
-- [ ] 🟨 **Step 10: Static case studies — Codex, Firecrawl, Obsidian**
-  - [x] 🟩 `atlas ingest` + `atlas map` on Firecrawl — **actually run**: 1631 files, 1339 nodes, 4087 edges, 592 concepts → `investigations/firecrawl-firecrawl/` + written finding `findings/architecture/firecrawl-structure.md` (cited to the graph)
-  - [ ] 🟨 Codex: runbook + Rust-core coverage gap documented (`investigations/codex/README.md`); live ingest is a one-command human step (external repo)
-  - [ ] 🟨 Obsidian: runbook for plugin-source ingest + planned vault analysis (`investigations/obsidian/README.md`)
+- [x] 🟩 **Step 10: Static case studies — Codex, Firecrawl, Obsidian**
+  - [x] 🟩 `atlas ingest` + `atlas map` on Firecrawl — **actually run**: 1631 files, 1339 nodes, 4087 edges, 592 concepts → `investigations/firecrawl-firecrawl/`; manual source study then traced the API, stored crawl, NuQ group, kickoff/sitemap/single-URL workers, BullMQ/RabbitMQ/NuQ/FDB queue split, engine fallback matrix, Playwright service boundary, and remaining runtime/FDB/cloud unknowns; written finding updated in `findings/architecture/firecrawl-structure.md`
+  - [x] 🟩 Codex: `atlas ingest` + `atlas map` on `github:openai/codex` — **actually run**: 5480 files, 1140 nodes, 2713 edges, 660 concepts → `investigations/openai-codex/` + written finding `findings/architecture/codex-structure.md`; Rust-core coverage gap documented in `unknowns.md`
+  - [x] 🟩 Obsidian: plugin-source ingest + map on `github:obsidianmd/obsidian-sample-plugin` — **actually run**: 19 files, 10 nodes, 10 edges, 3 concepts → `investigations/obsidianmd-obsidian-sample-plugin/` + written finding `findings/architecture/obsidian-plugin-structure.md`; installed vault analysis remains future adapter work
+  - [x] 🟩 Claw Code: public harness artifact added via `atlas ingest` + `atlas map` on `github:ultraworkers/claw-code` — **actually run**: 386 files, 40 nodes, 0 edges, 0 concepts → `investigations/ultraworkers-claw-code/`; manual source study then traced the 11-crate Rust runtime, 55 built-in tools, model/tool loop, providers, permissions, sessions, plugins, MCP, sub-agents, test surface, and incomplete compatibility layers; Rust/Python analyzer gap remains documented in `unknowns.md`
   - [x] 🟩 Claude Code architecture dossier `findings/architecture/claude-code-harness.md` — independently written from official docs + our trace model, provenance-tagged, external work cited, no leaked source
 
 - [ ] 🟥 **Step 11 (Phase 2): `apps/web` — graph explorer**
